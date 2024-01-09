@@ -1,0 +1,96 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 프래그먼트를 호스팅할 뷰 추가 -->
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/nav_view">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_view_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="식단 운동일지"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- '식단 운동일지' 아래 선 추가 -->
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/text_view_title"
+                android:layout_marginTop="2dp"
+                android:background="#000000" />
+
+            <CalendarView
+                android:id="@+id/calendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/text_view_memo_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/calendar"
+                android:layout_marginTop="10dp"
+                android:text="작성한 메모 : " />
+
+            <TextView
+                android:id="@+id/text_view_memo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/text_view_memo_label"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/text_view_memo_label" />
+
+            <TextView
+                android:id="@+id/text_view_comment_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_view_memo_label"
+                android:layout_marginTop="36dp"
+                android:text="관장님 피드백 : " />
+
+            <TextView
+                android:id="@+id/text_view_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/text_view_comment_label"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/text_view_comment_label" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_view_comment_label"
+                android:layout_marginTop="-128dp"
+                android:text="관장님과 메모 공유" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
