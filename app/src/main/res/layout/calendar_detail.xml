@@ -20,14 +20,14 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true" />
 
-
-            <TextView
-                android:id="@+id/text_view_memo"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/calendarView"
-                android:text=""/>
-
+                android:clipToPadding="false"
+                android:padding="10dp"
+                android:scrollbars="vertical" />
 
             <Button
                 android:id="@+id/close_button"
@@ -35,15 +35,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:text="종료하기" />
-
-            <TextView
-                android:id="@+id/text_view_comment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_above="@id/close_button"
-                android:text=""
-                android:textSize="20sp"
-                android:padding="10dp" />
 
         </RelativeLayout>
 

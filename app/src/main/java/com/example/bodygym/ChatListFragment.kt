@@ -23,10 +23,11 @@ import java.time.LocalDateTime
 import java.util.UUID
 
 data class ChatRoom(
-    val id: String,
-    val name: String,
-    val author: String,
-    val password: String
+    var id: String = "",
+    var name: String = "",
+    var author: String = "",
+    var password: String = "",
+    var timestamp: Long = 0 // timestamp 필드 추가
 )
 
 class ChatRoomAdapter(private val chatRooms: MutableList<ChatRoom>) : RecyclerView.Adapter<ChatRoomAdapter.ChatRoomViewHolder>() {
@@ -163,14 +164,16 @@ class ChatListFragment : Fragment() {
                         } else {
                             ""
                         }
-                        val roomAuthor = userName ?: "Anonymous" // 현재 로그인한 사용자 이름으로 변경했습니다.
+                        val roomAuthor = userName ?: "Anonymous"
+                        val timestamp = System.currentTimeMillis() // 현재 시간을 밀리초 단위로 가져옵니다.
 
-                        // 채팅방 이름이 비어있지 않은 경우에만 채팅방 생성
                         if (roomName.isNotBlank()) {
-                            val chatRoom = ChatRoom(UUID.randomUUID().toString(), roomName, roomAuthor, roomPassword)
+                            val chatRoom = ChatRoom("", roomName, roomAuthor, roomPassword, timestamp)
 
                             // Firebase에 채팅방 정보 저장
-                            databaseReference.child(chatRoom.id).setValue(chatRoom)
+                            val newChatRoomRef = databaseReference.push() // 새로운 자식 노드를 생성하고 참조를 가져옵니다.
+                            chatRoom.id = newChatRoomRef.key!! // 새로 생성된 노드의 키를 chatRoom의 id로 설정합니다.
+                            newChatRoomRef.setValue(chatRoom) // 새로 생성된 노드에 chatRoom 객체를 저장합니다.
                         }
                     }
                     builder.setNegativeButton("취소", null)

@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:padding="16dp" />
+
+    <TextView
+        android:id="@+id/commentInfoText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="빨간색 댓글은 코멘트를 작성한 댓글입니다."
+        android:gravity="center_horizontal"
+        android:padding="16dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/closeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="닫기" />
+</LinearLayout>

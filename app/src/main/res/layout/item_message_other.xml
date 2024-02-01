@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:textSize="12sp"
         android:gravity="start"
-        android:text=""/>
+        />
 
     <TextView
         android:id="@+id/chat_message_other"
@@ -22,7 +22,7 @@
         android:padding="10dp"
         android:layout_marginLeft="15dp"
         android:gravity="start"
-        android:text=""/>
+       />
     <!-- Image View -->
     <ImageView
         android:id="@+id/chat_image_other"
@@ -31,7 +31,7 @@
         android:scaleType="fitCenter"
         android:visibility="gone" />
 
-    <!-- Video View -->
+    <!-- Video View
     <VideoView
         android:id="@+id/chat_video_other"
         android:layout_width="100dp"
@@ -45,4 +45,5 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:visibility="gone" />
+        -->
 </LinearLayout>

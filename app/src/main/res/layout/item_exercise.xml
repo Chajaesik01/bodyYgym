@@ -1,0 +1,130 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/exercise_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <!-- 운동 이름 -->
+    <TextView
+        android:id="@+id/text_view_exercise_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- 세트 정보를 보여주는 뷰들을 담을 컨테이너 -->
+    <LinearLayout
+        android:id="@+id/set_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+    <!-- 세트 수, 체감 무게, 반복 횟수, 무게, reps를 보여주는 TextView들 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="세트 수" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="체감 무게" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="반복 횟수" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="무게" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="reps" />
+    </LinearLayout>
+
+    <!-- 세트 수, 체감 무게, 반복 횟수, 무게, reps를 입력하는 EditText들 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edit_text_set_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/edit_text_perceived_weight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/edit_text_repetition"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/edit_text_weight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/edit_text_reps"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+        <!-- 완료 체크박스 -->
+        <CheckBox
+            android:id="@+id/check_box_completed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+    </LinearLayout>
+
+
+    <!-- Spinner와 Add Set 버튼 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Rest Time Spinner -->
+        <Spinner
+            android:id="@+id/spinner_rest_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp" />
+
+        <!-- Add Set 버튼 -->
+        <Button
+            android:id="@+id/button_add_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Set" />
+    </LinearLayout>
+</LinearLayout>

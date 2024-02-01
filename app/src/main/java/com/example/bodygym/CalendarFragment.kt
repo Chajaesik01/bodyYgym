@@ -1,6 +1,7 @@
 package com.example.bodygym
 
 import SettingFragment
+import android.content.Intent
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.DatabaseReference
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.CalendarView
 import android.widget.CheckBox
 import android.widget.EditText
@@ -27,13 +29,14 @@ class CalendarFragment : Fragment() {
     private lateinit var myRef: DatabaseReference
     private lateinit var calendarView: CalendarView
     private lateinit var auth: FirebaseAuth
+    private var selectedDate: String = ""
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Initialize Firebase
-
         database = FirebaseDatabase.getInstance()
         myRef = database.getReference("memos")
         auth = FirebaseAuth.getInstance()
@@ -42,6 +45,16 @@ class CalendarFragment : Fragment() {
 
         // 뷰를 찾아 변수에 할당
         calendarView = view.findViewById(R.id.calendar)
+
+        val exerciseLogButton: Button? = view.findViewById(R.id.button_exercise_log)
+        if (exerciseLogButton != null) {
+            exerciseLogButton.setOnClickListener {
+                Log.d("CalendarFragment", "Button clicked") // 로그 출력
+                val intent = Intent(activity, ExerciseLogActivity::class.java)
+                intent.putExtra("selected_date", selectedDate)
+                startActivity(intent)
+            }
+        }
 
         return view
     }

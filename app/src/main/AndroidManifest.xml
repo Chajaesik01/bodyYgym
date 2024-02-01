@@ -31,6 +31,7 @@
         <activity android:name=".MessageAdapter$ChatDetailActivity"/>
         <activity android:name=".CalendarActivity"/>
         <activity android:name=".FullScreenImageActivity" />
+        <activity android:name=".ExerciseLogActivity"/>
 
         <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data

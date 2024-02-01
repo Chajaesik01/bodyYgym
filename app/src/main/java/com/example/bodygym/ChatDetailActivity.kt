@@ -109,10 +109,12 @@ class MessageAdapter(private val messages: ArrayList<Message>, private val curre
                     }
                 }
 
+                /*
                 // 동영상 클릭 리스너
                 holder.binding.chatVideoOther.setOnClickListener {
                     showDialog(holder.itemView.context, message.content, isImage = false)
                 }
+                 */
             }
         }
     }
@@ -161,7 +163,7 @@ class MessageAdapter(private val messages: ArrayList<Message>, private val curre
                     binding.chatMessageMe.text = message.content
                     binding.chatMessageMe.visibility = View.VISIBLE
                     binding.chatImageMe.visibility = View.GONE
-                    binding.chatVideoMe.visibility = View.GONE
+                    //binding.chatVideoMe.visibility = View.GONE
                 }
 
                 "image" -> {
@@ -169,7 +171,7 @@ class MessageAdapter(private val messages: ArrayList<Message>, private val curre
                         .into(binding.chatImageMe)
                     binding.chatMessageMe.visibility = View.GONE
                     binding.chatImageMe.visibility = View.VISIBLE
-                    binding.chatVideoMe.visibility = View.GONE
+                    //chatVideoMe.visibility = View.GONE
                 }
                 /*
                 "video" -> {
@@ -198,7 +200,7 @@ class MessageAdapter(private val messages: ArrayList<Message>, private val curre
                     binding.chatMessageOther.text = message.content
                     binding.chatMessageOther.visibility = View.VISIBLE
                     binding.chatImageOther.visibility = View.GONE
-                    binding.chatVideoOther.visibility = View.GONE
+                    //binding.chatVideoOther.visibility = View.GONE
                 }
 
                 "image" -> {
@@ -206,7 +208,7 @@ class MessageAdapter(private val messages: ArrayList<Message>, private val curre
                         .into(binding.chatImageOther)
                     binding.chatMessageOther.visibility = View.GONE
                     binding.chatImageOther.visibility = View.VISIBLE
-                    binding.chatVideoOther.visibility = View.GONE
+                   // binding.chatVideoOther.visibility = View.GONE
                 }
                 /*
                 "video" -> {
@@ -241,8 +243,6 @@ class MessageAdapter(private val messages: ArrayList<Message>, private val curre
                 */
             }
         }
-
-
     }
 
     class ChatDetailActivity : AppCompatActivity() {

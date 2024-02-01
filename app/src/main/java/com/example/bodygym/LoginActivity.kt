@@ -1,6 +1,8 @@
 package com.example.bodygym
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -16,11 +18,17 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var btnLogin: Button
     private lateinit var btnRegister: Button
 
+    // SharedPreferences를 사용하기 위한 변수
+    private lateinit var prefs: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         auth = FirebaseAuth.getInstance()
+
+        // SharedPreferences 인스턴스 초기화
+        prefs = getSharedPreferences("com.example.bodygym", Context.MODE_PRIVATE)
 
         editTextId = findViewById(R.id.editTextId)
         editTextPassword = findViewById(R.id.editTextPassword)
@@ -54,6 +62,9 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    // 로그인 성공 후 SharedPreferences에 로그인 정보 저장
+                    saveLoginInfo(email)
+
                     Toast.makeText(this, "$email 님, 로그인에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, HomeActivity::class.java) // HomeActivity로 이동하는 Intent 생성
                     startActivity(intent) // Intent 시작
@@ -63,5 +74,12 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this, "로그인 실패: ${task.exception?.localizedMessage}", Toast.LENGTH_LONG).show()
                 }
             }
+    }
+
+    // 로그인 성공 후 SharedPreferences에 로그인 정보 저장하는 메서드
+    private fun saveLoginInfo(email: String) {
+        val editor = prefs.edit()
+        editor.putString("userId", email)
+        editor.apply()
     }
 }

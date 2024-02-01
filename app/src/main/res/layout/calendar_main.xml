@@ -25,6 +25,16 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+            <Button
+                android:id="@+id/button_exercise_log"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:text="운동일지" />
+
             <!-- '식단 운동일지' 아래 선 추가 -->
             <View
                 android:id="@+id/line"
@@ -81,9 +91,15 @@
                 android:layout_marginTop="-128dp"
                 android:text="관장님과 메모 공유" />
 
+
+
         </RelativeLayout>
 
+
+
     </FrameLayout>
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
